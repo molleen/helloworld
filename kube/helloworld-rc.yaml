@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "ReplicationController"
+metadata:
+  name: "helloworld"
+  labels:
+    name: "helloworld"
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: "helloworld"
+      labels:
+        name: "helloworld"
+    spec:
+      containers:
+        - name: "helloworld"
+          image: "quay.io/molleen/helloworld:%TAG%"
+          ports:
+            - containerPort: 3000

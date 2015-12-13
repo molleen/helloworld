@@ -23,7 +23,8 @@ deployment:
       - docker build -t quay.io/molleen/helloworld:${CIRCLE_TAG} .
       - docker images
       - docker push quay.io/molleen/helloworld:${CIRCLE_TAG}
-
-test:
-  override:
-    - echo "running test after deploy"
+  kube_dev:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    owner: molleen
+    commands:
+      - KUBE_NAMESPACE=dev ./deploy.sh
