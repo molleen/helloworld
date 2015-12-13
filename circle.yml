@@ -9,7 +9,7 @@ dependencies:
   override:
     - docker info
     - docker version
-    - docker login -e="." -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
+    - docker login -e="." -u "$DOCKER_USER" -p "$DOCKER_PASS"
 
 test:
   post:
