@@ -7,7 +7,7 @@ machine:
 
 dependencies:
   pre:
-    - ./install-kubectl.sh
+    - sudo ./install-kubectl.sh
     - docker info
     - docker version
     - docker login -e="." -u "$DOCKER_USER" -p "$DOCKER_PASS" quay.io
