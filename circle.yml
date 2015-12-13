@@ -24,4 +24,4 @@ deployment:
       - docker build -t quay.io/molleen/helloworld:${CIRCLE_TAG} .
       - docker images
       - docker push quay.io/molleen/helloworld:${CIRCLE_TAG}
-      - KUBE_NAMESPACE=dev ./deploy.sh
+      - CIRCLE_TAG=${CIRCLE_TAG} KUBE_NAMESPACE=dev ./deploy.sh
