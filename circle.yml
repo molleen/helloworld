@@ -18,4 +18,6 @@ deployment:
   hub:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
+      - env
       - docker build -t molleen/helloworld .
+      - docker images
