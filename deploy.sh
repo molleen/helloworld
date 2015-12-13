@@ -2,7 +2,7 @@
 
 set -e
 
-sed -i "s/%TAG%/%{CIRCLE_TAG}/g" kube/helloworld-rc.yaml
+sed -i "s/%TAG%/${CIRCLE_TAG}/g" kube/helloworld-rc.yaml
 
 kubectl --username=${KUBE_USER} --password=${KUBE_PASS} \
   --insecure-skip-tls-verify --server=${KUBE_SERVER} \
