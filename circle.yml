@@ -2,7 +2,20 @@
 machine:
   node:
     version: 4.1
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker version
 
 test:
   post:
     - npm run lint
+
+deployment:
+  hub:
+    tag: "/v[0-9]+(\.[0-9]+)*/"
+    commands:
+      - docker build -t molleen/helloworld .

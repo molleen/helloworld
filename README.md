@@ -1,3 +1,3 @@
 # helloworld
 
-[![Build Status](https://travis-ci.org/molleen/helloworld.svg)](https://travis-ci.org/molleen/helloworld)
+[![build](https://circleci.com/gh/molleen/helloworld.svg?style=shield)](https://circleci.com/gh/molleen/helloworld)
