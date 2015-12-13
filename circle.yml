@@ -24,3 +24,6 @@ deployment:
       - docker images
       - docker push quay.io/molleen/helloworld:${CIRCLE_TAG}
 
+test:
+  override:
+    - echo "running test after deploy"
