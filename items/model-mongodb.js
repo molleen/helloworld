@@ -125,6 +125,10 @@ module.exports = function(config) {
     });
   }
 
+  function me(){
+    alert("hello");
+  }
+
   return {
     create: create,
     read: read,

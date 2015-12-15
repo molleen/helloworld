@@ -48,17 +48,14 @@ module.exports = function(model) {
   });
 
 
-// [START add_get]
   router.get('/add', function addForm(req, res) {
     res.render('items/form.jade', {
-      book: {},
+      item: {},
       action: 'Add'
     });
   });
-// [END add_get]
 
 
-// [START add_post]
   router.post('/', function insert(req, res) {
     var data = req.body;
 
@@ -68,26 +65,6 @@ module.exports = function(model) {
       res.redirect(req.baseUrl + '/' + savedData.id);
     });
   });
-// [END add_post]
-
-
-  router.get('/:item', function get(req, res) {
-    model.read(req.params.book, function(err, entity) {
-      if (err) { return handleRpcError(err, res); }
-      res.render('items/view.jade', {
-        book: entity
-      });
-    });
-  });
-
-
-  router.get('/:item/delete', function _delete(req, res) {
-    model.delete(req.params.book, function(err) {
-      if (err) { return handleRpcError(err, res); }
-      res.redirect(req.baseUrl);
-    });
-  });
-
 
   return router;
 
