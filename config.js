@@ -12,7 +12,7 @@ module.exports = {
 
 
   mongodb: {
-    url: 'mongodb://localhost:27017/moj',
+    url: 'mongodb://localhost:27017/moj-demo',
     collection: 'items'
   }
 };

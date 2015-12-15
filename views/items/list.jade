@@ -9,13 +9,27 @@ block content
       .form-group
        img(src= "https://images-eu.ssl-images-amazon.com/images/I/51XwtmnNjSL._AA160_.jpg")
       .form-group
+           label(for='quantity') Quantity:
+           select(name='quantity', id="quantity")
+                      option(value='1',   1 ) 1
+                      option(value='2',  2 ) 2
+                      option(value='3', 3 ) 3
+
+      .form-group
+            label(for="description") Description
+            input.form-control(type="text", name="description", id="description")
+
+      .form-group
       button.btn.btn-success(type="submit") Add to Cart
+
+
 
   each item in items
     .media
-      a(href="/items/#{item.title}")
+      a(href="/items/#{item.id}")
         .media-body
-          h4= item.id
+          h4= "ID:"+  item.id  + "    Description:" +  item.description + "    Quantity:" + item.quantity
+
 
   if !items.length
     p No Items found.

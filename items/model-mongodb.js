@@ -46,7 +46,7 @@ module.exports = function(config) {
 
   // [START list]
   function list(limit, token, cb) {
-    token = token ? parseInt(token, 10) : 0;
+    token = token ? parseInt(token, 3) : 0;
     getCollection(function(err, collection) {
       if (err) { return cb(err); }
       collection.find({})
@@ -96,44 +96,12 @@ module.exports = function(config) {
   }
 
 
-  // [START update]
-  function update(id, data, cb) {
-    getCollection(function(err, collection) {
-      if (err) { return cb(err); }
-      collection.update({
-          _id: new ObjectID(id)
-        }, {
-          '$set': toMongo(data)
-        },
-        {w: 1},
-        function(err) {
-          if (err) { return cb(err); }
-          return read(id, cb);
-        }
-      );
-    });
-  }
-  // [END update]
 
 
-  function _delete(id, cb) {
-    getCollection(function(err, collection) {
-      if (err) { return cb(err); }
-      collection.remove({
-        _id: new ObjectID(id)
-      }, cb);
-    });
-  }
-
-  function me(){
-    alert("hello");
-  }
 
   return {
     create: create,
     read: read,
-    update: update,
-    delete: _delete,
     list: list
   };
 
